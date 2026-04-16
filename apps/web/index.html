@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /*
+     * Inline styles using exact token values from shared/styles/theme.css.
+     * Light theme only — this is a minimal placeholder app.
+     *
+     * Colors:
+     *   --color-primary:    #3b82f6
+     *   --color-background: #f8fafc
+     *   --color-foreground: #0f172a
+     *   --color-muted:      #64748b
+     *
+     * Typography:
+     *   --font-sans: "Inter", system-ui, sans-serif
+     *
+     * Spacing:
+     *   --spacing-md: 1rem    (gap-md)
+     *   --spacing-lg: 1.5rem  (gap-lg)
+     *
+     * Border radius:
+     *   --radius-full: 9999px (rounded-full)
+     */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: "Inter", system-ui, sans-serif; }
+    body { background: #f8fafc; color: #0f172a; }
+
+    .screen {
+      display: flex;
+      min-height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hidden { display: none; }
+
+    /* Splash screen — mirrors Splash.tsx */
+    .splash-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem; /* gap-lg */
+    }
+
+    .splash-icon {
+      width: 6rem;    /* w-24 */
+      height: 6rem;   /* h-24 */
+      border-radius: 9999px; /* rounded-full */
+      background: #3b82f6;   /* bg-primary */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem; /* text-4xl */
+    }
+
+    .splash-title {
+      font-size: 1.875rem;  /* text-3xl */
+      font-weight: 700;     /* font-bold */
+      line-height: 2.25rem;
+      color: #0f172a; /* text-foreground */
+    }
+
+    .splash-loading {
+      color: #64748b; /* text-muted */
+    }
+
+    /* Home screen — mirrors Home.tsx */
+    .home-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;      /* gap-md */
+      text-align: center;
+    }
+
+    .home-title {
+      font-size: 2.25rem;   /* text-4xl */
+      font-weight: 700;     /* font-bold */
+      line-height: 2.5rem;
+      color: #0f172a; /* text-foreground */
+    }
+
+    .home-subtitle {
+      font-size: 1.125rem;  /* text-lg */
+      color: #64748b; /* text-muted */
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div data-testid="splash-screen" id="splash" class="screen">
+    <div class="splash-col">
+      <div class="splash-icon">
+        <span role="img" aria-label="app icon">📱</span>
+      </div>
+      <h1 class="splash-title">My App</h1>
+      <p class="splash-loading">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Home Screen -->
+  <div data-testid="home-screen" id="home" class="screen hidden">
+    <div class="home-col">
+      <h1 class="home-title">Hello, World!</h1>
+      <p class="home-subtitle">Welcome home. You have arrived.</p>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      document.getElementById("splash").classList.add("hidden");
+      document.getElementById("home").classList.remove("hidden");
+    }, 2000);
+  </script>
+</body>
+</html>

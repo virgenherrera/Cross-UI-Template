@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.workingDirectories": [
+    "apps/ui-spec-designer"
+  ],
+  "typescript.tsdk": "apps/ui-spec-designer/node_modules/typescript/lib",
+  "tailwindCSS.experimental.configFile": "shared/styles/theme.css"
+}

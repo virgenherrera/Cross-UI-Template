@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "../../../shared/styles/theme.css";
+
+/*
+ * Storybook wraps each story inside an iframe with its own html/body.
+ * min-h-full on a component requires the ancestor chain to have explicit height.
+ * min-h-screen is NOT used because it breaks on Android WebView where 100vh
+ * includes the system chrome, causing overflow.
+ */
+html,
+body,
+#storybook-root {
+  height: 100%;
+}

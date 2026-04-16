@@ -1,0 +1,12 @@
+{
+  "name": "@cross-ui/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm dlx http-server . -p 8080 -c-1",
+    "build": "echo \"TBD: replace with your app's build command\"",
+    "preview": "echo \"TBD: replace with your app's preview command\"",
+    "clean": "echo \"TBD: replace with your app's clean command\"",
+    "bumpDependencies": "pnpm dlx npm-check-updates"
+  }
+}

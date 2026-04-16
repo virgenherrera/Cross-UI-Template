@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit",
+      "Write",
+      "Bash(pnpm:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Agent",
+      "WebSearch"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit:*)",
+            "command": "pnpm run test 2>&1 || { echo '{\"decision\":\"block\",\"reason\":\"Local CI (pnpm run test) failed. Fix issues before committing.\"}'; exit 0; }",
+            "timeout": 120,
+            "statusMessage": "Running local CI before commit..."
+          }
+        ]
+      }
+    ]
+  }
+}

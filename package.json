@@ -1,0 +1,37 @@
+{
+  "name": "cross-ui-template",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0 <25"
+  },
+  "scripts": {
+    "test": "pnpm run format:check && pnpm run lint && pnpm run type-check",
+    "format:check": "pnpm --filter @cross-ui/ui-spec-designer run format:check",
+    "lint": "pnpm --filter @cross-ui/ui-spec-designer run lint",
+    "type-check": "pnpm --filter @cross-ui/ui-spec-designer run type-check",
+    "spec:dev": "pnpm --filter @cross-ui/ui-spec-designer run dev",
+    "spec:build": "pnpm --filter @cross-ui/ui-spec-designer run build",
+    "app:dev": "pnpm --filter @cross-ui/web run dev",
+    "app:build": "pnpm --filter @cross-ui/web run build",
+    "artifacts:capture": "pnpm --filter @cross-ui/generate-ui-screens run capture",
+    "e2e:web": "pnpm --filter @cross-ui/e2e run e2e:run",
+    "e2e:web:pw": "pnpm --filter @cross-ui/e2e run e2e:web",
+    "pipeline:capture": "./scripts/pipeline.sh capture",
+    "pipeline:validate": "./scripts/pipeline.sh validate",
+    "pipeline:full": "./scripts/pipeline.sh full",
+    "clean": "pnpm -r run clean && rm -rf .generated",
+    "init": "./scripts/init.sh",
+    "bumpDependencies": "pnpm -r run bumpDependencies",
+
+    "release": "node --experimental-strip-types scripts/release.ts",
+    "release:dry-run": "node --experimental-strip-types scripts/release.ts --dry-run"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/conventional-changelog": "^10.0.6",
+    "release-it": "^20.0.0"
+  }
+}

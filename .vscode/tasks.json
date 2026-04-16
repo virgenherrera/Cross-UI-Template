@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test (Full Chain)",
+      "type": "shell",
+      "command": "pnpm run test",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Storybook Dev",
+      "type": "shell",
+      "command": "pnpm run spec:dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Storybook Build",
+      "type": "shell",
+      "command": "pnpm run spec:build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Capture Artifacts",
+      "type": "shell",
+      "command": "pnpm run artifacts:capture",
+      "problemMatcher": []
+    },
+    {
+      "label": "E2E Web",
+      "type": "shell",
+      "command": "pnpm run e2e:web",
+      "problemMatcher": []
+    },
+    {
+      "label": "Full Pipeline",
+      "type": "shell",
+      "command": "pnpm run pipeline:full",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint",
+      "type": "shell",
+      "command": "pnpm run lint",
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Format Check",
+      "type": "shell",
+      "command": "pnpm run format:check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Type Check",
+      "type": "shell",
+      "command": "pnpm run type-check",
+      "problemMatcher": []
+    }
+  ]
+}

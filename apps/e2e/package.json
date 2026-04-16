@@ -1,0 +1,28 @@
+{
+  "name": "@cross-ui/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e:run": "node --experimental-strip-types src/run-e2e.ts",
+    "e2e:web": "playwright test --project='web-*'",
+    "e2e:web:headed": "playwright test --project='web-*' --headed",
+    "e2e:web:debug": "playwright test --project='web-*' --debug",
+    "e2e:web:report": "playwright show-report ../../.generated/reports/e2e",
+    "e2e:android": "playwright test --project=android",
+    "e2e:android:headed": "playwright test --project=android --headed",
+    "clean": "rm -rf test-results",
+    "bumpDependencies": "pnpm dlx npm-check-updates"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@types/node": "^25.6.0",
+    "@types/pngjs": "^6.0.5"
+  },
+  "dependencies": {
+    "pixelmatch": "^7.1.0",
+    "playwright": "catalog:",
+    "pngjs": "^7.0.0"
+  }
+}
