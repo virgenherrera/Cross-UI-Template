@@ -69,6 +69,7 @@ export default defineConfig({
     url: "http://localhost:8080",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    cwd: "../../",
   },
   projects: [
     ...webProjects,

@@ -18,13 +18,12 @@
     "artifacts:capture": "pnpm --filter @cross-ui/generate-ui-screens run capture",
     "e2e:web": "pnpm --filter @cross-ui/e2e run e2e:run",
     "e2e:web:pw": "pnpm --filter @cross-ui/e2e run e2e:web",
-    "pipeline:capture": "./scripts/pipeline.sh capture",
-    "pipeline:validate": "./scripts/pipeline.sh validate",
-    "pipeline:full": "./scripts/pipeline.sh full",
+    "pipeline:capture": "pnpm spec:build && start-test \"pnpm dlx http-server .generated/reports/storybook-static -p 6006 -c-1\" http://localhost:6006 \"pnpm artifacts:capture\"",
+    "pipeline:validate": "start-test \"pnpm dlx http-server apps/web -p 8080 -c-1\" http://localhost:8080 \"pnpm e2e:web\"",
+    "pipeline:full": "pnpm pipeline:capture && pnpm pipeline:validate",
     "clean": "pnpm -r run clean && rm -rf .generated",
     "init": "./scripts/init.sh",
     "bumpDependencies": "pnpm -r run bumpDependencies",
-
     "release": "node --experimental-strip-types scripts/release.ts",
     "release:dry-run": "node --experimental-strip-types scripts/release.ts --dry-run"
   },
@@ -32,6 +31,7 @@
   "devDependencies": {
     "@release-it/bumper": "^7.0.5",
     "@release-it/conventional-changelog": "^10.0.6",
-    "release-it": "^20.0.0"
+    "release-it": "^20.0.0",
+    "start-server-and-test": "^3.0.2"
   }
 }
