@@ -1,0 +1,6 @@
+echo '
+INFO: Pre-commit hook running lint-staged.
+Bypass with: git commit --no-verify
+'
+
+pnpm exec lint-staged

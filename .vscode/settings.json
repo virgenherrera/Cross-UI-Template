@@ -1,9 +1,25 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.workingDirectories": [
-    "apps/ui-spec-designer"
-  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.workingDirectories": ["apps/ui-spec-designer"],
+  "eslint.format.enable": true,
   "typescript.tsdk": "apps/ui-spec-designer/node_modules/typescript/lib",
-  "tailwindCSS.experimental.configFile": "shared/styles/theme.css"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.referencesCodeLens.enabled": true,
+  "tailwindCSS.experimental.configFile": "shared/styles/theme.css",
+  "css.lint.unknownAtRules": "ignore",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "npm.packageManager": "pnpm",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

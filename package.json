@@ -7,7 +7,8 @@
     "node": ">=22.0.0 <25"
   },
   "scripts": {
-    "test": "pnpm run format:check && pnpm run lint && pnpm run type-check",
+    "test": "pnpm run securityCheck && pnpm run format:check && pnpm run lint && pnpm run type-check",
+    "securityCheck": "pnpm audit --audit-level high",
     "format:check": "pnpm --filter @cross-ui/ui-spec-designer run format:check",
     "lint": "pnpm --filter @cross-ui/ui-spec-designer run lint",
     "type-check": "pnpm --filter @cross-ui/ui-spec-designer run type-check",
@@ -25,12 +26,17 @@
     "init": "./scripts/init.sh",
     "bumpDependencies": "pnpm -r run bumpDependencies",
     "release": "node --experimental-strip-types scripts/release.ts",
-    "release:dry-run": "node --experimental-strip-types scripts/release.ts --dry-run"
+    "release:dry-run": "node --experimental-strip-types scripts/release.ts --dry-run",
+    "prepare": "husky"
   },
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
     "@release-it/bumper": "^7.0.5",
     "@release-it/conventional-changelog": "^10.0.6",
+    "eslint": "^10.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.2",
     "release-it": "^20.0.0",
     "start-server-and-test": "^3.0.2"
   }

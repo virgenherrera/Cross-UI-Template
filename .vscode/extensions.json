@@ -3,6 +3,15 @@
     "bradlc.vscode-tailwindcss",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "ms-playwright.playwright"
+    "ms-playwright.playwright",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "DavidAnson.vscode-markdownlint"
+  ],
+  "unwantedRecommendations": [
+    "hookyqr.beautify",
+    "lonefy.vscode-JS-CSS-HTML-formatter",
+    "HookyQR.beautify",
+    "numso.prettier-standard-vscode"
   ]
 }
