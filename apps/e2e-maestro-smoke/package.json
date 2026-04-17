@@ -1,0 +1,11 @@
+{
+  "name": "@formo/e2e-maestro-smoke",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "smoke:ios": "maestro test -p ios flows/",
+    "smoke:android": "maestro test -p android flows/",
+    "smoke": "maestro test flows/",
+    "bumpDependencies": "pnpm dlx npm-check-updates"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "iOS: iPhone",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev:iphone",
+      "cwd": "${workspaceFolder}/apps/mobile"
+    },
+    {
+      "name": "iOS: iPad",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev:ipad",
+      "cwd": "${workspaceFolder}/apps/mobile"
+    },
+    {
+      "name": "Android: Mobile",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev:mobile",
+      "cwd": "${workspaceFolder}/apps/mobile"
+    },
+    {
+      "name": "Android: Tablet",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm run dev:tablet",
+      "cwd": "${workspaceFolder}/apps/mobile"
+    },
+    {
+      "name": "Attach LLDB (breakpoints)",
+      "type": "lldb",
+      "request": "attach",
+      "program": "${workspaceFolder}/apps/mobile/target/dx/formo/debug/ios/Formo.app/formo",
+      "waitFor": true
+    }
+  ]
+}

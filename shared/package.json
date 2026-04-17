@@ -1,0 +1,8 @@
+{
+  "name": "@formo/shared",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "echo 'nothing to clean'"
+  }
+}

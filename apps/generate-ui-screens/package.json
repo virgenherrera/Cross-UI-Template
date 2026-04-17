@@ -1,0 +1,19 @@
+{
+  "name": "@formo/generate-ui-screens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture": "node --experimental-strip-types src/capture-screenshots.ts",
+    "clean": "rimraf ../../.generated/reports/capture",
+    "bumpDependencies": "pnpm dlx npm-check-updates"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "dependencies": {
+    "playwright": "catalog:"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@types/node": "^25.6.0"
+  }
+}

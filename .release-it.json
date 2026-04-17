@@ -1,0 +1,41 @@
+{
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:init": "pnpm run test"
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "out": [
+        {
+          "file": "apps/ui-spec-designer/package.json",
+          "type": "application/json"
+        },
+        {
+          "file": "apps/generate-ui-screens/package.json",
+          "type": "application/json"
+        },
+        { "file": "apps/e2e/package.json", "type": "application/json" },
+        { "file": "apps/mobile/package.json", "type": "application/json" },
+        {
+          "file": "apps/e2e-maestro-smoke/package.json",
+          "type": "application/json"
+        },
+        { "file": "shared/package.json", "type": "application/json" }
+      ]
+    },
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits"
+      },
+      "infile": "CHANGELOG.md"
+    }
+  }
+}

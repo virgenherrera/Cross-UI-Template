@@ -1,0 +1,35 @@
+# === OS junk ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# === Node ===
+node_modules/
+
+# === Lock files from OTHER package managers (keep pnpm-lock.yaml) ===
+package-lock.json
+yarn.lock
+
+# === Build output ===
+build/
+dist/
+.turbo/
+
+# === Rust ===
+target/
+
+# === Environment ===
+.env
+.env.*
+
+# === Editor ===
+.idea/
+
+# === Claude Code local settings (personal preferences) ===
+.claude/settings.local.json
+
+# === Generated artifacts (on-the-fly PNGs) ===
+.generated/
+
+*storybook.log

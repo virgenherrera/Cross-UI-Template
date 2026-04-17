@@ -1,0 +1,28 @@
+{
+  "name": "@formo/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e:run": "node --experimental-strip-types src/run-e2e.ts",
+    "e2e:android": "playwright test --project=phone-light-en",
+    "e2e:android:headed": "playwright test --project=phone-light-en --headed",
+    "e2e:android:debug": "playwright test --project=phone-light-en --debug",
+    "e2e:android:report": "playwright show-report ../../.generated/reports/e2e",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf test-results",
+    "bumpDependencies": "pnpm dlx npm-check-updates"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@types/node": "^25.6.0",
+    "@types/pngjs": "^6.0.5",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "pixelmatch": "^7.1.0",
+    "playwright": "catalog:",
+    "pngjs": "^7.0.0"
+  }
+}
