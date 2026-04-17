@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0 (2026-04-17)
+
+### Features
+
+- cross-ui-template initial commit ([b2efe17](https://github.com/virgenherrera/Cross-UI-Template/commit/b2efe17e8f9f88ea4d5b34cf9e59e1e2e5947e5a))
+
 > **Docs:** [README](README.md) | [AGENTS.md](AGENTS.md) | [Architecture](docs/architecture.md) | [Pipeline](docs/feature-validation-pipeline.md) | [ADRs](docs/adr/) | [CLAUDE.md](CLAUDE.md) | **Changelog**
 
 ## Table of Contents
