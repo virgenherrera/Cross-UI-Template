@@ -6,12 +6,7 @@
     "ms-playwright.playwright",
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
-    "DavidAnson.vscode-markdownlint",
-    "rust-lang.rust-analyzer",
-    "vadimcn.vscode-lldb",
-    "tamasfe.even-better-toml",
-    "fill-labs.dependi",
-    "DioxusLabs.dioxus"
+    "DavidAnson.vscode-markdownlint"
   ],
   "unwantedRecommendations": [
     "hookyqr.beautify",

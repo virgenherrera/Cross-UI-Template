@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   webServer: {
     command:
-      "pnpm --filter @formo/ui-spec-designer run build && pnpm dlx http-server .generated/reports/storybook-static -p 6006 -c-1",
+      "pnpm --filter @my-app/ui-spec-designer run build && pnpm dlx http-server .generated/reports/storybook-static -p 6006 -c-1",
     port: 6006,
     reuseExistingServer: !process.env.CI,
     cwd: "../../",

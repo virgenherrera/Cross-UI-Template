@@ -1,9 +1,9 @@
-# formo
+# my-app
 
 > **Docs:** [README](README.md) | **AGENTS.md** | [Architecture](docs/architecture.md) | [Pipeline](docs/feature-validation-pipeline.md) | [ADRs](docs/adr/) | [CLAUDE.md](CLAUDE.md) | [Changelog](CHANGELOG.md)
 
-formo is a mobile app built with Dioxus 0.7.5 for Android and iOS, backed by a visual quality
-pipeline. Design screens in Storybook, generate golden PNGs, then validate the mobile app matches.
+my-app is a Cross-UI-Template — a visual quality pipeline for designing screens in Storybook,
+generating golden PNGs, then validating your production app matches pixel-perfect.
 
 ## Architecture
 
@@ -11,38 +11,23 @@ pipeline. Design screens in Storybook, generate golden PNGs, then validate the m
 | ------------------- | --------------------------- | ------------------------------------------------------------------------- |
 | UI Spec Designer    | `apps/ui-spec-designer/`    | Storybook 10 visual source of truth (React 19, TypeScript 6, Tailwind v4) |
 | Generate UI Screens | `apps/generate-ui-screens/` | Playwright RPA captures golden PNGs to `.generated/snapshots/`            |
-| E2E                 | `apps/e2e/`                 | Playwright visual regression against the mobile app                       |
-| E2E Maestro Smoke   | `apps/e2e-maestro-smoke/`   | Maestro 2.4+ smoke tests on Android and iOS                               |
-| Mobile              | `apps/mobile/`              | Dioxus 0.7.5 production app (Rust, Android + iOS)                         |
+| E2E                 | `apps/e2e/`                 | Playwright visual regression against the production app                   |
+| Web (placeholder)   | `apps/web/`                 | Your production app — replace with your own implementation                |
 
-**Flow:** Design (Storybook) -> Generate (RPA -> PNGs) -> Validate (E2E visual regression + Maestro smoke)
+**Flow:** Design (Storybook) -> Generate (RPA -> PNGs) -> Validate (E2E visual regression)
 
 **Shared tokens:** `shared/styles/theme.css` -- Tailwind v4 `@theme` directives only. Each
 consumer imports `tailwindcss` before the shared theme.
 
-### Platform Requirements
-
-**Android:**
-
-- Minimum API level: 33 (Android 13) -- required for Tailwind v4 CSS `@layer` support
-- Recommended: API 33 or API 36
-- API 30 and below will NOT work (WebView too old for modern CSS)
-
-**iOS:**
-
-- Deployment target: iOS 16.0+
-- iPhone 12 and newer supported
-
 ## Project Structure
 
 ```text
-formo/
+my-app/
   apps/
     ui-spec-designer/        # Storybook 10 (design source of truth)
     generate-ui-screens/     # Playwright RPA (golden PNG generation)
     e2e/                     # Playwright E2E (visual regression)
-    e2e-maestro-smoke/       # Maestro smoke tests (iOS + Android)
-    mobile/                  # Dioxus 0.7.5 mobile app (Android + iOS)
+    web/                     # Your production app (placeholder)
   shared/styles/theme.css    # Tailwind v4 design tokens
   .generated/                # Unified artifact output (gitignored)
     snapshots/{project}/{flow}/*.png   # Golden PNGs (RPA capture)
@@ -63,15 +48,8 @@ formo/
 | `pnpm run type-check`        | Type-check all apps                                                |
 | `pnpm run spec:dev`          | Storybook dev server (port 6006)                                   |
 | `pnpm run spec:build`        | Build static Storybook                                             |
-| `pnpm run app:android`       | Run mobile app on Android emulator/device                          |
-| `pnpm run app:ios`           | Run mobile app on iOS simulator/device                             |
-| `pnpm run app:build:android` | Build release APK/AAB for Android                                  |
-| `pnpm run app:build:ios`     | Build release IPA for iOS                                          |
-| `pnpm run app:tailwind`      | Watch and rebuild Tailwind CSS for mobile                          |
 | `pnpm run artifacts:capture` | Capture golden PNGs from Storybook                                 |
 | `pnpm run e2e:web`           | E2E visual regression                                              |
-| `pnpm run smoke:ios`         | Maestro smoke tests on iOS                                         |
-| `pnpm run smoke:android`     | Maestro smoke tests on Android                                     |
 | `pnpm run pipeline:capture`  | Build Storybook + capture golden PNGs                              |
 | `pnpm run clean`             | Remove all build artifacts recursively                             |
 | `pnpm run bumpDependencies`  | Bump deps in all apps                                              |
@@ -88,8 +66,8 @@ formo/
    Exceptions: (a) `.json` with `$schema` -- preferred for tool configs. (b) `.mjs` -- only
    when no `.ts` or `.json` support exists. Document WHY in a comment.
 2. **100% pnpm**: `npx` is PROHIBITED. Use `pnpm dlx` or local dependencies.
-3. **UI Agnosticism**: Storybook components are visual molds. The mobile app replicates
-   them. They are NOT the mobile app.
+3. **UI Agnosticism**: Storybook components are visual molds. The production app replicates
+   them. They are NOT the production app.
 
 ## Code Style and Conventions
 
@@ -114,9 +92,8 @@ Types: `feat` (new feature), `task` (implementation work), `fix` (bug fix),
 
 ## Stack Versions
 
-- Dioxus 0.7.5, Rust stable
 - Storybook 10.3.5, React 19.2.5, TypeScript 6.0.2
-- Tailwind CSS 4.2.2, Playwright 1.52.0, Maestro 2.4+
+- Tailwind CSS 4.2.2, Playwright 1.52.0
 - ESLint 9+ (flat config), Prettier, pnpm 10.33.0
 
 ## Skills
@@ -144,17 +121,10 @@ Map commit types: feat->Added, fix->Fixed, task->Changed, chore->omit if not use
 
 Path: `.claude/skills/storybook-mold/SKILL.md`
 
-Visual mold components in ui-spec-designer are design specifications, NOT the mobile app.
-They define the visual contract that the mobile app must replicate pixel-perfectly.
+Visual mold components in ui-spec-designer are design specifications, NOT the production app.
+They define the visual contract that the production app must replicate pixel-perfectly.
 Use `satisfies Meta<typeof Component>`, always add `tags: ["autodocs"]`, import types from
 `@storybook/react-vite`, use shared design token classes.
-
-### Dioxus Mobile
-
-Path: `.claude/skills/dioxus-mobile/SKILL.md`
-
-Dioxus 0.7.5 patterns for Android/iOS: component structure, Tailwind v4 class usage,
-platform-specific behavior, WebView constraints, and build conventions.
 
 ### SDD Guide
 

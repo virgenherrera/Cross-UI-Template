@@ -12,7 +12,7 @@ const { _android: android } = require("playwright");
 // 4. If not visible, add WebView.setWebContentsDebuggingEnabled(true) to MainActivity.kt
 // Android WebView 113+ enables debugging automatically for debuggable apps
 
-const ANDROID_PKG = process.env.ANDROID_PKG ?? "mx.virgensystems.formo";
+const ANDROID_PKG = process.env.ANDROID_PKG ?? "com.example.myapp";
 
 interface AndroidFixtures {
   androidPage: Page;

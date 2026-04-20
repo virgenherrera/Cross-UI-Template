@@ -23,11 +23,7 @@
           "type": "application/json"
         },
         { "file": "apps/e2e/package.json", "type": "application/json" },
-        { "file": "apps/mobile/package.json", "type": "application/json" },
-        {
-          "file": "apps/e2e-maestro-smoke/package.json",
-          "type": "application/json"
-        },
+        { "file": "apps/web/package.json", "type": "application/json" },
         { "file": "shared/package.json", "type": "application/json" }
       ]
     },

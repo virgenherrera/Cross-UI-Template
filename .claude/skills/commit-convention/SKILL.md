@@ -1,11 +1,11 @@
 ---
 name: commit-convention
 description: >
-  Commit message format for formo.
+  Commit message format for my-app.
   Trigger: When creating git commits.
 license: Apache-2.0
 metadata:
-  author: formo
+  author: my-app
   version: "1.0"
 ---
 

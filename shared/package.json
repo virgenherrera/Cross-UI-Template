@@ -1,5 +1,5 @@
 {
-  "name": "@formo/shared",
+  "name": "@my-app/shared",
   "version": "0.1.0",
   "private": true,
   "scripts": {

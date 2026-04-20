@@ -1,0 +1,9 @@
+{
+  "name": "@my-app/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Replace with your production app'",
+    "build": "echo 'Replace with your production app'"
+  }
+}

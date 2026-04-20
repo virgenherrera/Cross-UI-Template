@@ -1,4 +1,4 @@
-# Skill Registry -- formo (2026-04-20)
+# Skill Registry -- my-app (2026-04-20)
 
 ## Project-Level Skills
 
@@ -7,7 +7,6 @@
 | commit-convention | `.claude/skills/commit-convention/SKILL.md` | When creating git commits                                               |
 | changelog         | `.claude/skills/changelog/SKILL.md`         | When creating commits, releasing versions, or updating changelog        |
 | storybook-mold    | `.claude/skills/storybook-mold/SKILL.md`    | When creating React components in ui-spec-designer as visual molds      |
-| dioxus-mobile     | `.claude/skills/dioxus-mobile/SKILL.md`     | When writing Rust code in apps/mobile or working with Dioxus components |
 | sdd-guide         | `.claude/skills/sdd-guide/SKILL.md`         | Reference for SDD phase selection and workflow                          |
 
 ## User-Level Skills
@@ -52,7 +51,7 @@
 
 ### storybook-mold
 
-- Components are visual molds for formo, NOT the production app
+- Components are visual molds for the production app, NOT the production app itself
 - Import types from `@storybook/react-vite` (pnpm strict isolation)
 - Use `satisfies Meta<typeof Component>`, always add `tags: ["autodocs"]`
 - Use shared design token classes, all files .tsx
@@ -62,16 +61,6 @@
 - Every app exposes the SAME script names (lint, format, format:check, type-check, clean)
 - Root orchestrates via `pnpm --filter` without knowing the underlying tool
 - NEVER create runtime-specific script names at root (no `rust:*`, `node:*`, `cargo:*`)
-- Node apps use eslint/prettier/tsc, Rust apps use cargo clippy/fmt/check
-
-### dioxus-mobile
-
-- Dioxus 0.7 mobile app (Android/iOS only, NO web target)
-- Bundle ID: `mx.virgensystems.formo`
-- Use shared design token classes from `shared/styles/theme.css`
-- Tailwind scans `.rs` files via `@source "src/**/*.rs"` in `input.css`
-- Dev: `dx serve --android` / `dx serve --ios`; Build: `dx build --release --android` / `--ios`
-- Build output to `.generated/builds/` via `out_dir` in Dioxus.toml
 
 ### react-19
 

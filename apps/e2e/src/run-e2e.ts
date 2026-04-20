@@ -52,8 +52,8 @@ interface ComparisonResult {
 // Constants
 // ---------------------------------------------------------------------------
 
-/** Bundle ID of the Dioxus app running on the Android emulator. */
-const ANDROID_PKG = process.env.ANDROID_PKG ?? "mx.virgensystems.formo";
+/** Bundle ID of the app running on the Android emulator. */
+const ANDROID_PKG = process.env.ANDROID_PKG ?? "com.example.myapp";
 
 const ROOT_DIR = join(import.meta.dirname, "../../..");
 const SNAPSHOTS_DIR = join(ROOT_DIR, ".generated/snapshots");

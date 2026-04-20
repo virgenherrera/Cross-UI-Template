@@ -1,5 +1,5 @@
 {
-  "name": "@formo/generate-ui-screens",
+  "name": "@my-app/generate-ui-screens",
   "version": "0.1.0",
   "private": true,
   "type": "module",

@@ -1,11 +1,11 @@
 ---
 name: changelog
 description: >
-  Maintain a CHANGELOG.md following Keep a Changelog format for formo.
+  Maintain a CHANGELOG.md following Keep a Changelog format for my-app.
   Trigger: When creating commits, releasing versions, or when user asks to update changelog.
 license: Apache-2.0
 metadata:
-  author: formo
+  author: my-app
   version: "1.0"
 ---
 

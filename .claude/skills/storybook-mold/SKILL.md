@@ -1,17 +1,17 @@
 ---
 name: storybook-mold
 description: >
-  Storybook visual mold patterns for formo.
+  Storybook visual mold patterns for my-app.
   Trigger: When creating React components in ui-spec-designer that serve as visual molds for your production app.
 license: Apache-2.0
 metadata:
-  author: formo
+  author: my-app
   version: "1.0"
 ---
 
 ## Visual Mold Pattern
 
-Storybook components are NOT the production app. They are visual specifications (molds) that your production app replicates.
+Storybook components are NOT the production app. They are visual specifications (molds) that the production app replicates.
 
 ### Component Structure
 
